@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="计划"
+        android:id="@+id/plan"
+        android:icon="@drawable/plan"
+        />
+    <item
+        android:id="@+id/bookshelf"
+        android:title="书架"
+        android:icon="@drawable/shelf"
+        />
+    <item
+        android:title="书屋"
+        android:id="@+id/bookhome"
+        android:icon="@drawable/home"
+        />
+    <item
+        android:title="笔记"
+        android:id="@+id/note"
+        android:icon="@drawable/note"
+        />
+
+</menu>

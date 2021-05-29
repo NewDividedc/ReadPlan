@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.readproject">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ReadProject">
+        <activity android:name=".FragmentShelf"></activity>
+        <activity android:name=".FragmentNote" />
+        <activity android:name=".FragmentHome" />
+        <activity android:name=".FragmentPlan" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".FragementShelf" />
+        <activity android:name=".FragementNote" />
+        <activity android:name=".FragementPlan" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_margin">16dp</dimen>
+    <dimen name="item_text_size">12sp</dimen>
+    <!--卡片圆角度-->
+    <dimen name="card_radius">3dp</dimen>
+    <!--卡片-->
+    <dimen name="card_elevation">2dp</dimen>
+    <!--卡片边距-->
+    <dimen name="card_elevation_margin">8dp</dimen>
+</resources>
