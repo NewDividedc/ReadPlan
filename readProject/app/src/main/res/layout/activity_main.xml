@@ -12,14 +12,17 @@
         android:id="@+id/head"
         android:background="#FFFFFF"
         android:orientation="horizontal">
-        <Button
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:id="@+id/userImage"
-            android:background="@drawable/user"
-            android:onClick="user_click">
-        </Button>
+            app:navigationIcon="@drawable/user"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+        </androidx.appcompat.widget.Toolbar>
+
 
         <FrameLayout
             android:layout_weight="1"
@@ -48,7 +51,7 @@
                 android:layout_gravity="right|center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onClick"/>
+                />
 
         </FrameLayout>
         <Button
@@ -69,7 +72,7 @@
 
         <FrameLayout
             android:id="@+id/frag"
-            android:name="com.example.design2.fragment1"
+            android:name="com.example.readProject.FragmentPlan"
             android:layout_height="wrap_content"
             android:layout_width="match_parent" />
 
