@@ -13,4 +13,16 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="bookname">书名</string>
+    <string name="bookpic">书籍封面</string>
+    <string name="booklan">语言</string>
+    <string name="bookauthor">作者</string>
+    <string name="bookpub">出版社</string>
+    <string name="bookintro">介绍</string>
+    <string name="comment">评论</string>
+    <string name="no_brief">暂无简介。</string>
+    <string name="review_submit">提交</string>
+    <string name="review_cancel">取消</string>
+
 </resources>

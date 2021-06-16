@@ -15,4 +15,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#f8f8f8</color>
+    <color name="book_title_mask">#80000000</color>
+    <color name="publish_info_bg">#6ececece</color>
+    <color name="grass_green">#00BCD4</color>
 </resources>
