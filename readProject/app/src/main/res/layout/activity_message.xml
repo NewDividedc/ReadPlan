@@ -1,6 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessageActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/above"
+        android:outlineSpotShadowColor="@color/black">
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/return_message"
+            android:shadowColor="@color/black"
+            android:onClick="returnMain"></Button>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/above"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/image_response"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/message_response"></Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="回复我的"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:layout_toRightOf="@+id/response"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/image_like"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/message_like"></Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="点赞"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:layout_toRightOf="@+id/like"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/image_notice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/message_notice"></Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="系统通知"></TextView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messagelist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:paddingTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/above"
+        app:layout_constraintTop_toBottomOf="@+id/above" />
 </androidx.constraintlayout.widget.ConstraintLayout>

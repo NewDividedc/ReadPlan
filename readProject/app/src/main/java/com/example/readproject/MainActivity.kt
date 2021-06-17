@@ -1,32 +1,35 @@
 package com.example.readproject
 
-import FragmentNote
+import com.example.readproject.note.FragmentNote
+import android.app.Activity
+import org.litepal.LitePal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.example.readproject.note.NoteViewModel
+import com.example.readproject.note.ReadNote
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
-
+    private val myViewModel by viewModels<NoteViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-
         toolbar.title = ""
         toolbar.setNavigationIcon(R.drawable.user)
         setSupportActionBar(toolbar)
-
         replaceFragment(FragmentPlan())
-
         initActionBarDrawer()
         initListener()
+
     }
 
     private fun replaceFragment(fragment : Fragment){
@@ -110,9 +113,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         }
-    fun clickMessage(view: View){
+    fun clickMessage(view:View){
         val intent = Intent(this, MessageActivity::class.java)
         startActivity(intent)
-
     }
+
 }

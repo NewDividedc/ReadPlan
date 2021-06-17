@@ -13,7 +13,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="bookname">书名</string>
     <string name="bookpic">书籍封面</string>
     <string name="booklan">语言</string>

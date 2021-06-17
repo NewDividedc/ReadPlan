@@ -23,7 +23,7 @@
             android:paddingLeft="20dip"
             android:paddingBottom="10dip"
             android:paddingRight="20dip"
-            android:src="@drawable/douban_logo"
+            android:src="@drawable/del_topic"
             android:scaleType="centerInside">
         </ImageView>
 
@@ -32,7 +32,7 @@
             android:paddingTop="5dip"
             android:layout_below="@id/doubanLogo"
             android:layout_height="fill_parent"
-            android:background="@drawable/content_bg"
+            android:background="@drawable/message_like"
             android:id="@+id/section1">
 
             <TextView
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="40dip"
                     android:background="@android:drawable/editbox_background"
-                    android:layout_below="@id/wrapper"/>
+                    />
 
 
                 <EditText android:text=""
@@ -78,14 +78,14 @@
                         android:id="@+id/btnLogin"
                         android:width="100dp"
                         android:layout_width="wrap_content"
-                        android:background="@drawable/wp_button_small"
+                        android:background="@drawable/password_icon"
                         android:layout_height="wrap_content"
                         android:onClick="btnUserLogin"/>
                     <Button android:text="返回"
                         android:id="@+id/btnExit"
                         android:width="100dp"
                         android:layout_width="wrap_content"
-                        android:background="@drawable/wp_button_small"
+                        android:background="@drawable/note_save"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </RelativeLayout>

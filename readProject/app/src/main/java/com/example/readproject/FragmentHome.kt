@@ -1,6 +1,8 @@
 package com.example.readproject
 
+import android.content.Context
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+
 
 class FragmentHome : Fragment() {
 
@@ -140,4 +143,3 @@ class FragmentHome : Fragment() {
     }
 
 }
-
