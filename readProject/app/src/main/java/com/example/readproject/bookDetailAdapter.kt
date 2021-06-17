@@ -36,8 +36,7 @@ class bookDetailAdapter(val bookInfo: BooksItemOne, val reviewList: List<bookRev
     private val PROGRESS_DELAY_SIZE_TIME = 1000
 
     private val mBookInfo: BooksItemOne
-    private val mReviewsListResponse: List<bookReview>?
-
+    private var mReviewsListResponse: List<bookReview>?
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view: View
@@ -64,7 +63,7 @@ class bookDetailAdapter(val bookInfo: BooksItemOne, val reviewList: List<bookRev
             (holder as BookInfoHolder).tv_comment_num.setText(
                 reviewList!!.size.toString()+"人评分"
             )
-            (holder as BookInfoHolder).tv_book_info.setText(mBookInfo.author+"/"+mBookInfo.pubdate)
+            (holder as BookInfoHolder).tv_book_info.setText(mBookInfo.author+"/"+mBookInfo.pubdate+"/"+mBookInfo.publisher)
         } else if (holder is BookBriefHolder) {
             if (!mBookInfo.intro.equals("")) {
                 (holder as BookBriefHolder).etv_brief.content = mBookInfo.intro
@@ -77,12 +76,13 @@ class bookDetailAdapter(val bookInfo: BooksItemOne, val reviewList: List<bookRev
                 (holder as BookCommentHolder).itemView.setVisibility(View.GONE)
             } else if (position == HEADER_COUNT) {
                 (holder as BookCommentHolder).tv_comment_title.visibility = View.VISIBLE
-            } else if (position == reviews.size + 1) {
-                (holder as BookCommentHolder).tv_more_comment.visibility = View.VISIBLE
-                (holder as BookCommentHolder).tv_more_comment.setText(
-                    reviewList!!.size.toString() + "条"
-                )
             }
+            //else if (position == reviews.size + 1) {
+            //    (holder as BookCommentHolder).tv_more_comment.visibility = View.VISIBLE
+            //    (holder as BookCommentHolder).tv_more_comment.setText(
+            //        reviewList!!.size.toString() + "条"
+            //    )
+            //}
             Glide.with(context)
                 .load(
                     UserDao(context).queryUser(reviews[position - HEADER_COUNT].uid)!!.img
@@ -140,9 +140,13 @@ class bookDetailAdapter(val bookInfo: BooksItemOne, val reviewList: List<bookRev
     override fun getItemCount(): Int {
         var count: Int = HEADER_COUNT
         if (mReviewsListResponse != null) {
-            count += mReviewsListResponse.size
+            count += mReviewsListResponse!!.size
         }
         return count
+    }
+
+    fun setReviews(reviewList: List<bookReview>){
+        mReviewsListResponse=reviewList
     }
 
     inner class BookInfoHolder(itemView: View) :

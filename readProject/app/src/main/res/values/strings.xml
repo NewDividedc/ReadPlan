@@ -25,4 +25,23 @@
     <string name="review_submit">提交</string>
     <string name="review_cancel">取消</string>
 
+    <string name="loginAndreg">登录/注册</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="account">用户名</string>
+    <string name="password">密码</string>
+    <string name="RegOk">注册成功</string>
+
+    <string name="stop_download_tip">停止</string>
+    <string name="text_login">登录</string>
+    <string name="tv_register">新用户注册</string>
+    <string name="et_password_tip">请输入密码</string>
+    <string name="et_rp_password_tip">请再次输入密码</string>
+    <string name="et_rp_captcha">请输入验证码</string>
+    <string name="et_account_tip">请输入用户名</string>
+    <string name="text_register">注册</string>
+    <string name="text_agreement_tip">我已阅读并同意《</string>
+    <string name="link_agreement">
+        <a href="https://shimo.im/docs/RgkDpd3D3Gp6t3rD">用户服务协议</a>
+    </string>
 </resources>

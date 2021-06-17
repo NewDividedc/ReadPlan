@@ -91,6 +91,7 @@ class BookDetailActivity : AppCompatActivity() {
                 ReviewDao(this).addReview(bookReview(0,bid!!,uid!!,year.toString()+"-"+month+"-"+day_of_month,returnedComment.toString(),returenRating.toString(),0))
             }
         }
+        mDetailAdapter!!.setReviews(commentList)
         mDetailAdapter!!.notifyDataSetChanged()
     }
 
