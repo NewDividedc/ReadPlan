@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
 
+    <EditText
+        android:id="@+id/account_edit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:drawableLeft="@drawable/phone_icon"
+        android:digits="@string/login_edit_digits"
+        android:hint="@string/account_hint_text"
+        android:layout_marginTop="120dp"/>
+    <EditText
+        android:id="@+id/password_edit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="@id/account_edit"
+        app:layout_constraintRight_toRightOf="@id/account_edit"
+        app:layout_constraintTop_toBottomOf="@id/account_edit"
+        android:drawableLeft="@drawable/password_icon"
+        android:hint="@string/password_hint_text"
+        android:inputType="textPassword"
+        android:layout_marginTop="15dp"/>
+
+    <CheckBox
+        android:id="@+id/check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/password_edit"
+        android:text="记住密码"
+        android:layout_marginTop="5dp"
+        app:layout_constraintRight_toRightOf="@id/password_edit"/>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintLeft_toLeftOf="@id/password_edit"
+        app:layout_constraintRight_toRightOf="@id/password_edit"
+        app:layout_constraintTop_toBottomOf="@id/check_box"
+        android:text="@string/login_button_text"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_button_text"
+        app:layout_constraintRight_toRightOf="@id/login_btn"
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        android:layout_marginTop="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

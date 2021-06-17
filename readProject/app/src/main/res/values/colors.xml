@@ -15,4 +15,40 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#f8f8f8</color>
+    <color name="book_title_mask">#80000000</color>
+    <color name="publish_info_bg">#6ececece</color>
+    <color name="grass_green">#00BCD4</color>
+
+    <!-- Items Dark -->
+    <color name="md_dark_background">@color/md_grey_850</color>
+    <!-- 12% -->
+    <color name="md_dark_dividers">#1FFFFFFF</color>
+    <!-- 30% -->
+    <color name="md_dark_disabled">#4DFFFFFF</color>
+    <!-- 70% -->
+    <color name="md_dark_secondary">#B3FFFFFF</color>
+    <color name="md_dark_primary_icon">#B3FFFFFF</color>
+    <!-- 100% -->
+    <color name="md_dark_primary_text">#FFFFFFFF</color>
+
+    <color name="md_grey_850">#303030</color>
+
+    <!--text-->
+    <!--用于重要级文字信息，如标题，子模块功能文字等-->
+    <color name="textPrimary">#212121</color>
+    <!--用于普通级信息-->
+    <color name="textSecondary">#757575</color>
+    <!--用于普通级信息、引导词,如昵正文、弹层文案、查看更多之类-->
+    <color name="textAssist">#9e9e9e</color>
+    <!--用于辅助、次要的文字信息、普通按钮描边,如时间、来自等补充信息文案-->
+    <color name="textAssistSecondary">#B0B0B0</color>
+    <color name="textPrimaryInverted">#ffffff</color>
+    <color name="textSecondaryInverted">#c8ffffff</color>
+    <color name="textAssistInverted">#8affffff</color>
+
+    <color name="textError">#ffe7492e</color>
+    <color name="textTranslucent">#96ffffff</color>
+    <color name="transparent30">#30000000</color>
+
 </resources>

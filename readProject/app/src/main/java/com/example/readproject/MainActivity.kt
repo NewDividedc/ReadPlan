@@ -11,7 +11,6 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -111,4 +110,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         }
+    fun clickMessage(view: View){
+        val intent = Intent(this, MessageActivity::class.java)
+        startActivity(intent)
+
+    }
 }

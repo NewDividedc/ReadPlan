@@ -13,4 +13,50 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="bookname">书名</string>
+    <string name="bookpic">书籍封面</string>
+    <string name="booklan">语言</string>
+    <string name="bookauthor">作者</string>
+    <string name="bookpub">出版社</string>
+    <string name="bookintro">介绍</string>
+    <string name="comment">评论</string>
+    <string name="no_brief">暂无简介。</string>
+    <string name="review_submit">提交</string>
+    <string name="review_cancel">取消</string>
+
+    <string name="loginAndreg">登录/注册</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="account">用户名</string>
+    <string name="password">密码</string>
+    <string name="RegOk">注册成功</string>
+
+    <string name="stop_download_tip">停止</string>
+    <string name="text_login">登录</string>
+    <string name="tv_register">新用户注册</string>
+    <string name="et_password_tip">请输入密码</string>
+    <string name="et_rp_password_tip">请再次输入密码</string>
+    <string name="et_rp_captcha">请输入验证码</string>
+    <string name="et_account_tip">请输入用户名</string>
+    <string name="text_register">注册</string>
+    <string name="text_agreement_tip">我已阅读并同意《</string>
+    <string name="link_agreement">
+        <a href="https://shimo.im/docs/RgkDpd3D3Gp6t3rD">用户服务协议</a>
+    </string>
+    <string name="login_edit_digits">0123456789qwertyuiopasdfghjklzxcvbnm_</string>
+    <string name="account_hint_text">请输入账号</string>
+    <string name="password_hint_text">请输入密码</string>
+    <string name="login_button_text">登录</string>
+    <string name="register_button_text">注册</string>
+    <string name="password_input_error_tip">请确认您输入的密码是否正确</string>
+    <string name="user_unregister_tip">该用户还未注册</string>
+    <string name="password_is_empty_tip">密码不能为空</string>
+    <string name="account_is_empty_tip">账号不能为空</string>
+    <string name="register_success_text_tip">注册成功</string>
+    <string name="account_exist_text_tip">该账号已存在，请重新输入</string>
+    <string name="dialog_tip_text">提示</string>
+    <string name="login_dialog_message_text">该账号还未注册，是否跳转到注册页面进行注册？</string>
+    <string name="confirm_text">确定</string>
+    <string name="cancle_text">取消</string>
 </resources>
