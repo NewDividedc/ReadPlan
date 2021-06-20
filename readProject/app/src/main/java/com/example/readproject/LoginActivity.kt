@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.readproject.note.FragmentNote
 import kotlinx.android.synthetic.main.activity_login.*
 import org.litepal.LitePal
 
@@ -94,9 +95,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                             SPUtils.instance.put("PASSWORD","")
                             SPUtils.instance.put("CHECKBOX",false)
                         }
-                        //账号密码正确跳转到主页
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
                     }
                 }
 

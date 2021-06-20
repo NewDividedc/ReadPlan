@@ -6,9 +6,10 @@ class NoteViewModel : ViewModel(){
     var noteList: MutableList<ReadNote> = ArrayList()
     fun insertNote(date:String,title:String,content:String){
         var note=ReadNote()
-        note.notedate=date
-        note.notetitle=title
-        note.notecontent=content
+        note.setNoteDate(date)
+        note.setNoteTitle(title)
+        note.setNoteContent(content)
+        //note.setNoteDate(date)
         noteList.add(note)
     }
     fun clearAll(){

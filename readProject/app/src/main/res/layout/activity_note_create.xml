@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:clickable="true">
     <ScrollView
         android:id="@+id/scroll_content"
         android:layout_width="match_parent"
@@ -35,7 +36,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:textColor="@color/black"
-                        android:hint="Title"/>
+                        android:hint="Title"
+                        android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
             <LinearLayout
@@ -54,19 +56,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:hint="Content"/>
+                        android:hint="Content"
+                        android:inputType="text"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <com.example.readproject.DragFloatActionButton
                 android:id="@+id/note_create_Fad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="330dp"
                 android:src="@drawable/note_save"
+                android:clickable="true"
                 app:backgroundTint="@color/lighttopic"
                 app:layout_anchor="@id/scroll_content"
-                app:layout_anchorGravity="right|end" />
+                app:layout_anchorGravity="right|end"
+                android:background="@mipmap/ic_launcher"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="6"
+                android:max="100"
+                android:progress="0"
+                android:thumb="@drawable/slide_round"
+                android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/seekbarprocess"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="字体大小为"
+                android:textColor="@color/lighttopic"
+                android:visibility="invisible"
+                ></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lv_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true">
+
+                <include layout="@layout/note_bottom"/>
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

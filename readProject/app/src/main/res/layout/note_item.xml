@@ -32,6 +32,13 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             />
+        <TextView
+            android:id="@+id/notedate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="10dp"
+            ></TextView>
         <ImageView
             android:id="@+id/delete_note"
             android:layout_width="15dp"
