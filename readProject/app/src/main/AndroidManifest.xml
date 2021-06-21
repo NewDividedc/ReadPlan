@@ -26,7 +26,10 @@
         <activity android:name=".MessageActivity" />
         <activity android:name=".MyCommentActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+       <activity android:name=".Plan.NewPlanActivity"/>
+        <activity android:name=".Plan.MonthNewActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".ui.NewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

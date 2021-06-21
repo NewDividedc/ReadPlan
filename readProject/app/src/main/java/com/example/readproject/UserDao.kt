@@ -11,6 +11,7 @@ class UserDao(val context: Context) {
     fun insertUser(user:User){
         val db = helper.writableDatabase
         val sql="insert into user (name,password,img) values('"+user.name+"','"+user.passWord+"','"+user.img+"')"
+
         db.execSQL(sql)
     }
 
