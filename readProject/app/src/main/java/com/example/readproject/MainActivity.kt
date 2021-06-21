@@ -1,5 +1,6 @@
 package com.example.readproject
 
+import PlanDatabase.MyPlanHelper
 import android.app.Activity
 import android.content.Context
 import org.litepal.LitePal
@@ -37,6 +38,13 @@ class MainActivity : AppCompatActivity() {
     var CAMERA_CODE = 0
     var picture_scene_img: ImageView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
+
+//plan的数据库创建：
+
+      val dbHelper = MyPlanHelper(this ,"plan.db",1)
+        val db = dbHelper.writableDatabase
+        val dbHelper2 = MyPlanHelper(this ,"card.db",1)
+        val db2 = dbHelper.writableDatabase
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
