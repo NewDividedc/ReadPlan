@@ -16,8 +16,9 @@
         android:outlineSpotShadowColor="@color/black">
 
         <Button
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
             android:background="@drawable/return_message"
             android:shadowColor="@color/black"
             android:onClick="returnMain"></Button>

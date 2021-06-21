@@ -21,7 +21,7 @@ class BookDao(val context: Context) {
 
     fun queryBookbyName(bookName:String):BooksItemOne?{
         val db = helper.writableDatabase
-        val cursor = db.query("books",null,"name='?'", arrayOf(bookName),null,null,null)
+        val cursor = db.query("books",null,"name=?", arrayOf(bookName),null,null,null)
         var book : BooksItemOne ?=null
         if(cursor.moveToFirst()){
             do {

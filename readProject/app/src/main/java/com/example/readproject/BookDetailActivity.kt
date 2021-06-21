@@ -87,8 +87,8 @@ class BookDetailActivity : AppCompatActivity() {
             1 -> if(resultCode == RESULT_OK){
                 val returnedComment = data ?. getStringExtra("comment_return")
                 val returenRating = data?.getStringExtra("rating_return")
-                commentList.add(bookReview(0,bid!!,uid!!,year.toString()+"-"+month+"-"+day_of_month,returnedComment.toString(),returenRating.toString(),0))
-                ReviewDao(this).addReview(bookReview(0,bid!!,uid!!,year.toString()+"-"+month+"-"+day_of_month,returnedComment.toString(),returenRating.toString(),0))
+                commentList.add(bookReview(0,bid!!,uid!!,year.toString()+"-"+month+"-"+day_of_month,returnedComment.toString(),(java.lang.Float.valueOf(returenRating)*2).toString(),0))
+                ReviewDao(this).addReview(bookReview(0,bid!!,uid!!,year.toString()+"-"+month+"-"+day_of_month,returnedComment.toString(),(java.lang.Float.valueOf(returenRating)*2).toString(),0))
             }
         }
         mDetailAdapter!!.setReviews(commentList)

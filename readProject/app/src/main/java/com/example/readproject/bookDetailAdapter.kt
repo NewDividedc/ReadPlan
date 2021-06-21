@@ -63,7 +63,7 @@ class bookDetailAdapter(val bookInfo: BooksItemOne, val reviewList: List<bookRev
             (holder as BookInfoHolder).tv_comment_num.setText(
                 reviewList!!.size.toString()+"人评分"
             )
-            (holder as BookInfoHolder).tv_book_info.setText(mBookInfo.author+"/"+mBookInfo.pubdate+"/"+mBookInfo.publisher)
+            (holder as BookInfoHolder).tv_book_info.setText(mBookInfo.author+" / "+mBookInfo.pubdate+" / "+mBookInfo.publisher)
         } else if (holder is BookBriefHolder) {
             if (!mBookInfo.intro.equals("")) {
                 (holder as BookBriefHolder).etv_brief.content = mBookInfo.intro

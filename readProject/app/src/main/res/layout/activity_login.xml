@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,6 +20,7 @@
         android:digits="@string/login_edit_digits"
         android:hint="@string/account_hint_text"
         android:layout_marginTop="120dp"/>
+
     <EditText
         android:id="@+id/password_edit"
         android:layout_width="0dp"
@@ -47,8 +49,9 @@
         app:layout_constraintLeft_toLeftOf="@id/password_edit"
         app:layout_constraintRight_toRightOf="@id/password_edit"
         app:layout_constraintTop_toBottomOf="@id/check_box"
+        android:textColor="@color/white"
         android:text="@string/login_button_text"
-        android:background="@color/colorAccent"
+        android:background="#8493bc"
         android:layout_marginTop="15dp"/>
     <TextView
         android:id="@+id/register_btn"
@@ -58,5 +61,6 @@
         app:layout_constraintRight_toRightOf="@id/login_btn"
         app:layout_constraintTop_toBottomOf="@id/login_btn"
         android:layout_marginTop="10dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

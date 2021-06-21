@@ -44,4 +44,22 @@ class ReviewDao (context: Context){
         db.execSQL(sql)
     }
 
+    fun queryReviewByUid(uid:Int):ArrayList<bookReview>{
+        val reviewList = ArrayList<bookReview>()
+        val db = helper.writableDatabase
+        val cursor = db.query("reviews",null,"uid=?", arrayOf(uid.toString()),null,null,null)
+        if (cursor.moveToFirst()){
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex("id"))
+                val bid = cursor.getInt(cursor.getColumnIndex("bid"))
+                val date = cursor.getString(cursor.getColumnIndex("date"))
+                val comment = cursor.getString(cursor.getColumnIndex("comment"))
+                val rating = cursor.getString(cursor.getColumnIndex("rating"))
+                val likeNum =  cursor.getInt(cursor.getColumnIndex("likeNum"))
+                val review = bookReview(id,bid,uid,date,comment,rating,likeNum)
+                reviewList.add(review)
+            }while (cursor.moveToNext())
+        }
+        return reviewList
+    }
 }

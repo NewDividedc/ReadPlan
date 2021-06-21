@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Main2Activity">
+    tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="80dp"
         android:id="@+id/head"
         android:background="#FFFFFF"
         android:orientation="horizontal">
@@ -16,21 +16,19 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="15dp"
             app:navigationIcon="@drawable/user"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-
-        </androidx.appcompat.widget.Toolbar>
-
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
         <FrameLayout
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
 
             <EditText
-                android:id="@+id/searchMoviewInput"
+                android:id="@+id/searchBookInput"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:drawableLeft="@drawable/search_icon"
@@ -41,7 +39,7 @@
                 android:inputType="text"
                 android:hint="搜索书籍名称"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="40dp"/>
 
             <ImageView
                 android:id="@+id/search_delete"
@@ -49,25 +47,27 @@
                 android:src="@drawable/iv_delete_bg"
                 android:visibility="gone"
                 android:layout_gravity="right|center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 />
 
         </FrameLayout>
+
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
             android:id="@+id/notice"
-            android:onClick="clickMessage"
-            android:background="@drawable/notice">
-        </Button>
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="27dp"
+            android:background="@drawable/notice"
+            android:onClick="clickMessage"></Button>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/mainview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/head"
+        android:layout_marginBottom="65dp"
         android:layout_weight="1"
         android:orientation="vertical">
 

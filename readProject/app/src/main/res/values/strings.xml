@@ -58,4 +58,6 @@
     <string name="login_dialog_message_text">该账号还未注册，是否跳转到注册页面进行注册？</string>
     <string name="confirm_text">确定</string>
     <string name="cancle_text">取消</string>
+
+    <string name="my_review">我的评论</string>
 </resources>

@@ -9,6 +9,7 @@
     app:cardCornerRadius="@dimen/card_radius"
     app:cardElevation="@dimen/card_elevation"
     android:layout_marginEnd="@dimen/item_margin"
+    android:layout_marginBottom="5dp"
     android:layout_marginStart="@dimen/item_margin"
     android:layout_marginTop="@dimen/item_margin"
     android:id="@+id/root_view">

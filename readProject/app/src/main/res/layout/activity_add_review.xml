@@ -25,10 +25,12 @@
 
     <RatingBar
         android:id="@+id/review_ratingBar"
+        android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:numStars="5" />
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:max="10"/>
 
     <Button
         android:id="@+id/review_submit"

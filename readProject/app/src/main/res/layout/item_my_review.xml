@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp">
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/my_ratingBar_review"
+            style="@style/ratingstar"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:isIndicator="true"
+            android:max="10"
+            android:rating="8.3" />
+
+        <TextView
+            android:id="@+id/tv_review_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:text="2021-05-15"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="15sp" />
+        <ImageView
+            android:id="@+id/delete_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/more" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:id="@+id/tv_my_comment_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="15dp"
+            android:text="dddddddddddddddddddddddddddddddddddddddddd"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <include layout="@layout/my_review_books_item_one" />
+
+
+</LinearLayout>

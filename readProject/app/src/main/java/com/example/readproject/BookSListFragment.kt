@@ -28,6 +28,7 @@ class BookSListFragment(val title: String,val bookList:ArrayList<BooksItemOne>):
                 intent.putExtra("uid",5)
                 startActivity(intent)
             }
+
         })
 
         return view
