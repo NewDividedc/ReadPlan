@@ -90,7 +90,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
     fun searchFile(){
         val fileNames: MutableList<String> = mutableListOf()
         //在该目录下走一圈，得到文件目录树结构
-        val fileTree: FileTreeWalk = File("E:\\").walk()
+        val fileTree: FileTreeWalk = File("").walk()
         fileTree.maxDepth(1) //需遍历的目录层次为1，即无须检查子目录
             .filter { it.isFile } //只挑选文件，不处理文件夹
 //        .filter { it.extension == "txt"  } //选择扩展名为txt的文本文件
@@ -335,7 +335,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         titleEt?.textSize= progress.toFloat()
         contentEt?.textSize=progress.toFloat()
-        seekbarprocess.text="大小为${progress}"
+        seekbarprocess.text="字体大小为${progress}"
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
