@@ -2,56 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#8373A2A6">
 
-    <TextView
+    <ImageView
         android:id="@+id/noteexit"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
-        android:background="@color/lighttopic"
+        android:src="@drawable/note_exit"
         android:gravity="center"
-        android:text="退出"
         android:textColor="@android:color/white"/>
-    <TextView
+    <ImageView
         android:id="@+id/noteclear"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
-        android:background="@color/lighttopic"
+        android:src="@drawable/note_clear"
         android:gravity="center"
-        android:text="清空"
         android:layout_marginLeft="0.8dp"
         android:textColor="@android:color/white"/>
-   <TextView
+   <ImageView
         android:id="@+id/fontchange"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
-        android:background="@color/lighttopic"
+        android:src="@drawable/fonttype"
         android:gravity="center"
-        android:text="切换字体"
         android:layout_marginLeft="0.8dp"
         android:textColor="@android:color/white"/>
-    <TextView
+    <ImageView
         android:id="@+id/fontsizechange"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
-        android:background="@color/lighttopic"
+        android:src="@drawable/fontsize"
         android:gravity="center"
-        android:text="字体大小"
         android:layout_marginLeft="0.8dp"
         android:textColor="@android:color/white"/>
 
-    <TextView
+    <ImageView
         android:id="@+id/noteshare"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
-        android:background="@color/lighttopic"
+        android:src="@drawable/screenshot"
         android:gravity="center"
-        android:text="保存截图"
         android:layout_marginLeft="0.8dp"
         android:textColor="@android:color/white"/>
 

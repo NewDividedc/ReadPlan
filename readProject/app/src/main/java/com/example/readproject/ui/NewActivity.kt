@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.readproject.LoginActivity
 import com.example.readproject.MainActivity
 import com.example.readproject.R
+import kotlinx.android.synthetic.main.acvityty_l.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -14,7 +16,6 @@ class NewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.startlayout)
-
        main()
 
     }
@@ -28,7 +29,7 @@ class NewActivity : AppCompatActivity() {
 
     fun skip_page(){
         //页面跳转
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

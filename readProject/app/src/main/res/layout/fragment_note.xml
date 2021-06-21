@@ -18,13 +18,16 @@
 
         <com.example.readproject.DragFloatActionButton
             android:id="@+id/noteFrm_addFad"
+            android:src="@drawable/note_add"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_add"
             app:backgroundTint="@color/lighttopic"
             app:layout_anchor="@id/noteFrm_recyclerView"
             app:layout_anchorGravity="right|end"
-            android:background="@mipmap/ic_launcher"/>
+            android:layout_marginTop="450dp"
+            >
+
+        </com.example.readproject.DragFloatActionButton>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>

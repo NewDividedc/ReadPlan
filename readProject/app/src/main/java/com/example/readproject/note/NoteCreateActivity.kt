@@ -16,6 +16,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.content.PermissionChecker
 import androidx.core.view.isVisible
 import butterknife.BindView
@@ -39,12 +40,12 @@ import java.util.*
 open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListener{
     //var db: SQLiteDatabase = Connector.getDatabase()
     var notes= ReadNote();
-    private var rootView: LinearLayout? = null
+    private var rootView: RelativeLayout? = null
     private var titleTi: TextInputLayout? = null
     private var titleEt: EditText? = null
     private var contentTi: TextInputLayout? = null
     private var contentEt: EditText? = null
-    private var addFAB: DragFloatActionButton? = null
+    private var addFAB: CardView? = null
     private var isSaved:Int=1
     private var time:String?=null
     private var idea: ReadNote? = null
@@ -72,14 +73,14 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         initData()
         initEvent()
         val fonts = listOf("瘦金体", "楷体", "华文行楷", "方正粗圆", "方正流行体简体", "方正卡通简体")
-        fontchange.text = "选择字体"
+        //fontchange.text = "选择字体"
         fontchange.setOnClickListener {
             selector("请选择字体", fonts) {_: DialogInterface, i: Int ->
-                fontchange.text = fonts[i]
-                val typeface = Typeface.createFromAsset(assets, "${fontchange.text}.ttf") // 换成需要的字体，字体文件放于 工程名\app\src\main\assets\fonts 下
+                //fontchange.text = fonts[i]
+                val typeface = Typeface.createFromAsset(assets, "${fonts[i]}.ttf") // 换成需要的字体，字体文件放于 工程名\app\src\main\assets\fonts 下
                 icAct_title_et.typeface = typeface
                 icAct_desc_et.typeface=typeface
-                toast("你选择的字体是${fontchange.text}")
+                toast("你选择的字体是${fonts[i]}")
             }
         }
         val sb= findViewById<SeekBar>(R.id.seekbar)
@@ -115,7 +116,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
     fun OnClick2(v:View){
         if (isShowing) { //如果标题栏是显示状态，则隐藏
             isShowing = false
-            lvBottom?.let { HideAnimationUtils(false, it) }
+            lvBottom?.let { HideAnimationUtils(false, it)}
             /*Animation(false);*/
         } else {
             isShowing = true
@@ -259,12 +260,12 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         return super.onTouchEvent(event)
     }
     private fun initView() {
-        rootView = findViewById<LinearLayout>(R.id.icAct_layout) as LinearLayout
+        rootView = findViewById<RelativeLayout>(R.id.icAct_layout) as RelativeLayout
         titleEt = findViewById<EditText>(R.id.icAct_title_et) as EditText
         titleTi = findViewById<TextInputLayout>(R.id.icAct_title_textInput) as TextInputLayout
         contentEt = findViewById<EditText>(R.id.icAct_desc_et) as EditText
         contentTi = findViewById<TextInputLayout>(R.id.icAct_desc_ti) as TextInputLayout
-        addFAB = findViewById<View>(R.id.note_create_Fad) as DragFloatActionButton
+        addFAB = findViewById<View>(R.id.note_create_Fad) as CardView
 
     }
     private fun initData() {
@@ -333,7 +334,6 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        titleEt?.textSize= progress.toFloat()
         contentEt?.textSize=progress.toFloat()
         seekbarprocess.text="字体大小为${progress}"
     }
