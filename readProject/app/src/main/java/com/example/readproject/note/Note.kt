@@ -1,11 +1,22 @@
 package com.example.readproject.note
 
+import com.example.readproject.UserBean
 import org.litepal.crud.LitePalSupport
 
 class ReadNote: LitePalSupport(){
-    var notedate:String?=null
-    var notetitle:String?=null
-    var notecontent: String?=null
+    private var notedate:String?=null
+    private var notetitle:String?=null
+    private var notecontent: String?=null
+    private var userAccount: String?=null
+    //var user: UserBean? = null
+
+   fun setUserAccount(account:String?){
+       this.userAccount=account
+
+   }
+    fun getUserAccount(): String? {
+        return this.userAccount
+    }
 
     fun setNoteDate(date: String?) {
         this.notedate = date

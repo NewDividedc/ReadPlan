@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_subtitle">signature_editable</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -43,7 +43,7 @@
     <string name="link_agreement">
         <a href="https://shimo.im/docs/RgkDpd3D3Gp6t3rD">用户服务协议</a>
     </string>
-    <string name="login_edit_digits">0123456789qwertyuiopasdfghjklzxcvbnm_</string>
+    <string name="login_edit_digits">0123456789qwertyuiopasdfghjklzxcvbnm_ABCDEFGHIJKLMNOPQRSTUVW</string>
     <string name="account_hint_text">请输入账号</string>
     <string name="password_hint_text">请输入密码</string>
     <string name="login_button_text">登录</string>

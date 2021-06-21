@@ -15,14 +15,16 @@
             android:layout_height="match_parent"
             android:paddingTop="8dp"
             android:paddingLeft="8dp"/>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        <com.example.readproject.DragFloatActionButton
             android:id="@+id/noteFrm_addFad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="450dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/ic_add"
             app:backgroundTint="@color/lighttopic"
             app:layout_anchor="@id/noteFrm_recyclerView"
-            app:layout_anchorGravity="right|end" />
+            app:layout_anchorGravity="right|end"
+            android:background="@mipmap/ic_launcher"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>
