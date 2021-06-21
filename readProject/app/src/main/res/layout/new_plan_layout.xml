@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/backtomonth"
+        android:src="@drawable/back_plan"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/new_plan_topic"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="创建计划"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/backtomonth"
+        />
+    <EditText
+        android:id="@+id/topic_text"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:drawablePadding="10dp"
+        android:background="@drawable/search_edittext_shape"
+        android:textSize="16sp"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:hint="请输入事件标题 "
+        android:layout_height="50dp"
+        android:layout_below="@+id/new_plan_topic"
+        />
+
+
+    <EditText
+        android:id="@+id/concent_text"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:drawablePadding="10dp"
+        android:background="@drawable/search_edittext_shape"
+        android:textSize="16sp"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:hint="计划内容 "
+        android:layout_height="100dp"
+        android:layout_below="@+id/topic_text"
+        />
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/is_notify_line"
+        android:layout_below="@+id/concent_text"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/is_notify_text"
+            android:text="提醒"
+            />
+
+        <Switch
+            android:id="@+id/is_notice_switch"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/new_plan_makesure"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="#FEFFFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        tools:ignore="MissingConstraints"
+        android:layout_below="@+id/is_notify_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+<!--    <CalendarView-->
+<!--        -->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:selectedWeekBackgroundColor="#1cb0e1" />-->
+
+    <com.example.readproject.ui.MyCalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="#FEFFFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        tools:ignore="MissingConstraints"
+        android:layout_below="@+id/calendar_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:onClick="card_click"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打卡"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:elevation="3dp"
+        app:backgroundTint="#E8EBF3"
+        tools:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="30dp"
+        tools:ignore="MissingConstraints"
+        android:src="@drawable/add"
+         />
+
+
+
+
+</RelativeLayout>

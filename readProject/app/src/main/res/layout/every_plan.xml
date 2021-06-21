@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/every_plan"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    >
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="#BECEDA"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="13dp"
+        android:background="#BECEDA"
+        android:layout_centerVertical="true"
+        />
+
+    <ImageView
+        android:src="@drawable/circle"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        />
+
+
+
+    <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="#FEFFFF"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp"
+
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="10dp"
+                tools:ignore="MissingConstraints">
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="#E5ECF1"
+
+            />
+
+
+        <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/item_total"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="16dp"
+                    >
+                    <TextView
+                        android:id="@+id/item_text_one"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="标题:"
+                        android:textSize="15dp"
+                        android:layout_marginTop="15dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/item_plan_topic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="jhhhh"
+                        android:textColor="#464F67"
+                        android:textStyle="bold"
+                        android:layout_toRightOf="@id/item_text_one"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/item_text_two"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="15dp"
+                        android:text="内容:"
+                        android:layout_below="@+id/item_text_one"
+                        />
+
+                <TextView
+                    android:id="@+id/item_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="jhhhh"
+                    android:textColor="#464F67"
+                    android:layout_toRightOf="@+id/item_text_two"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@id/item_text_one"
+                    android:layout_marginTop="15dp"
+                    ></TextView>
+
+                <CheckBox
+                    android:id="@+id/is_complet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:button="@drawable/checkbox_draw"
+                    />
+
+                 </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
