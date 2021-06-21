@@ -50,10 +50,12 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
     private var time:String?=null
     private var idea: ReadNote? = null
     var account1:String?=null
-   @JvmField
+    private var isShowing = false
+    @JvmField
    @BindView(R.id.lv_bottom)
     var lvBottom: LinearLayout? = null
-    private var isShowing = false
+
+   //
 
     override fun onCreate(savedInstanceState: Bundle?): Unit {
         super.onCreate(savedInstanceState)
@@ -85,6 +87,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         }
         val sb= findViewById<SeekBar>(R.id.seekbar)
         sb.setOnSeekBarChangeListener(this)
+        HideAnimationUtils(false,lv_bottom)
         //tv=(TextView) findViewById(R.id.tv);
     }
 
@@ -100,8 +103,9 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         fileNames.forEach(::println)
     }
 
-    @OnClick(R.id.icAct_title_et)
+    @OnClick(R.id.icAct_layout)
         fun OnClick1(v:View){
+        toast("你选择的字体是")
         if (isShowing) { //如果标题栏是显示状态，则隐藏
             isShowing = false
             lvBottom?.let { HideAnimationUtils(false, it) }
@@ -110,27 +114,6 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
             isShowing = true
             lvBottom?.let { HideAnimationUtils(true, it) }
         }
-
-    }
-    @OnClick(R.id.icAct_desc_et)
-    fun OnClick2(v:View){
-        if (isShowing) { //如果标题栏是显示状态，则隐藏
-            isShowing = false
-            lvBottom?.let { HideAnimationUtils(false, it)}
-            /*Animation(false);*/
-        } else {
-            isShowing = true
-            lvBottom?.let { HideAnimationUtils(true, it) }
-        }
-
-    }
-
-    @OnClick(R.id.noteexit)
-    fun OnClick3(v: View){
-        alert("不保留修改吗？", "尊敬的用户") {
-            positiveButton("残忍丢弃") { finish()  }
-            negativeButton("我再想想") {  }
-        }.show()
 
     }
     @OnClick(R.id.noteclear)

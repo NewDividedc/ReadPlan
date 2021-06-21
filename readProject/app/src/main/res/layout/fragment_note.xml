@@ -18,7 +18,7 @@
 
         <com.example.readproject.DragFloatActionButton
             android:id="@+id/noteFrm_addFad"
-            android:src="@drawable/note_add"
+            android:src="@drawable/add_note"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:backgroundTint="@color/lighttopic"

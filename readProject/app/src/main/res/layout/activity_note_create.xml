@@ -119,7 +119,7 @@
 
 
             //进度条
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/jdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,10 +127,10 @@
                 >
             <SeekBar
                 android:id="@+id/seekbar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_weight="6"
-                android:max="100"
+                android:max="50"
                 android:progress="0"
                 android:thumb="@drawable/slide_round"
                 android:visibility="invisible"/>
@@ -143,7 +143,7 @@
                 android:textColor="@color/lighttopic"
                 android:visibility="invisible"
                 ></TextView>
-            </RelativeLayout>
+            </LinearLayout>
 
 
 

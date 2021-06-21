@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#8BB4CA">
+        android:background="@color/white">
 
     <ImageView
         android:id="@+id/noteexit"
@@ -38,7 +38,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
-        android:src="@drawable/fonttype"
+        android:src="@drawable/note_font"
         android:gravity="center"
         android:layout_marginLeft="0.8dp"
         android:textColor="@android:color/white"/>
