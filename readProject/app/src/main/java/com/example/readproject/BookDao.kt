@@ -7,6 +7,7 @@ class BookDao(val context: Context) {
     private val helper = DatabaseHelper(context,"ReadProject.db",1)
 
     fun insertBook(book:BooksItemOne){
+        //helper.onUpgrade("Read.db",10,11)
         val db = helper.writableDatabase
         val sql = "insert into books values(" + book.bid + ",'" +
                 book.pic +"','" +

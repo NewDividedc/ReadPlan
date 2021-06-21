@@ -1,6 +1,5 @@
 package com.example.readproject.note
 
-import com.example.readproject.UserBean
 import org.litepal.crud.LitePalSupport
 
 class ReadNote: LitePalSupport(){

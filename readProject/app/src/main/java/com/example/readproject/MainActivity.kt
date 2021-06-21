@@ -28,6 +28,10 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.graphics.drawable.RoundedBitmapDrawable
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.BitmapImageViewTarget
 import kotlinx.android.synthetic.main.activity_main2.view.*
 import kotlinx.android.synthetic.main.bar_header.view.*
 
@@ -47,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(FragmentPlan())
         initActionBarDrawer()
         initListener()
+
     }
 
     private fun replaceFragment(fragment : Fragment){
@@ -109,7 +114,7 @@ class MainActivity : AppCompatActivity() {
                     else{
                         val intent=Intent(this@MainActivity,BookDetailActivity::class.java)
                         intent.putExtra("bid",BookDao(this@MainActivity).queryBookbyName(searchBookInput.text.toString())!!.bid)
-                        intent.putExtra("uid",5)
+                        intent.putExtra("uid",UserDao(this@MainActivity).queryUserbyName(SPUtils.instance.getString("ACCOUNT")!!)!!.uid)
                         startActivity(intent)
                     }
                 }
@@ -124,6 +129,26 @@ class MainActivity : AppCompatActivity() {
         /**
          * 侧边栏点击事件
          */
+        Glide.with(this)
+                .load(
+                        UserDao(this@MainActivity).queryUserbyName(SPUtils.instance.getString("ACCOUNT")!!)!!.img
+                )
+                .asBitmap()
+                .centerCrop()
+                .into(object :
+                        BitmapImageViewTarget(nav_view.getHeaderView(0).headimage) {
+                    override fun setResource(resource: Bitmap) {
+                        val circularBitmapDrawable: RoundedBitmapDrawable =
+                                RoundedBitmapDrawableFactory.create(
+                                        this@MainActivity.getResources(),
+                                        resource
+                                )
+                        circularBitmapDrawable.setCircular(true)
+                        nav_view.getHeaderView(0).headimage.setImageDrawable(
+                                circularBitmapDrawable
+                        )
+                    }
+                })
         nav_view.getHeaderView(0).useraccount.text = SPUtils.instance.getString("ACCOUNT")
         nav_view.setNavigationItemSelectedListener {
 
@@ -131,7 +156,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_comment -> {
                     val intent=Intent(this,MyCommentActivity::class.java)
-                    intent.putExtra("uid",5)
+                    intent.putExtra("uid",UserDao(this).queryUserbyName(SPUtils.instance.getString("ACCOUNT")!!)!!.uid)
                     startActivity(intent)
                     true
                 }

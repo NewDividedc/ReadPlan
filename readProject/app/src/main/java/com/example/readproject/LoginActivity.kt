@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                 }
                 val account = account_edit.text.toString().trim()//获取账号
                 val password = password_edit.text.toString().trim()//获取密码
-                val findUser = LitePal.where("userAccount = ?", account).find(UserBean::class.java)//根据账号在数据库中查询
+                val findUser = LitePal.where("name = ?", account).find(User::class.java)//根据账号在数据库中查询
                 if(findUser.size == 0){
                     //若返回的list长度为0则该账号还未注册，弹出对话框提示用户注册
                     dialog.show()

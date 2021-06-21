@@ -25,7 +25,7 @@ class BookSListFragment(val title: String,val bookList:ArrayList<BooksItemOne>):
             override fun onclick(view: View, position: Int) {
                 val intent= Intent(activity,BookDetailActivity::class.java)
                 intent.putExtra("bid",bookList[position].bid)
-                intent.putExtra("uid",5)
+                intent.putExtra("uid",UserDao(requireActivity()).queryUserbyName(SPUtils.instance.getString("ACCOUNT")!!)!!.uid)
                 startActivity(intent)
             }
 

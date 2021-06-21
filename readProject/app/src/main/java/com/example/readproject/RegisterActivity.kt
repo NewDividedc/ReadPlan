@@ -64,10 +64,10 @@ class RegisterActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 val account = account_edit.text.toString().trim()//获取账号
                 val password = password_edit.text.toString().trim()//获取密码
-                val findUser = LitePal.where("userAccount = ?", account).find(UserBean::class.java)//根据账号在数据库中查询
+                val findUser = LitePal.where("name = ?", account).find(User::class.java)//根据账号在数据库中查询
                 if(findUser.size == 0){
                     //该账号在数据库中没有才可以注册
-                    val newUser = UserBean(account,password,"")
+                    val newUser = User(account,password)
                     newUser.save()//将该用户插入数据库
                     Toast.makeText(this,getString(R.string.register_success_text_tip),Toast.LENGTH_SHORT).show()
                     //将用户的账号密码回传给LoginActivity

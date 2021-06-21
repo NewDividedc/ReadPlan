@@ -11,7 +11,7 @@ class MainActivity3 : AppCompatActivity() {
     }
 
     fun addData(view: View?){
-        val helper = DatabaseHelper(this,"ReadProject.db",1)
+        val helper = DatabaseHelper(this,"ReadProject.db",8)
         val db=helper.writableDatabase
         val sql= "alter table user add passWord varchar"
         db.execSQL(sql)

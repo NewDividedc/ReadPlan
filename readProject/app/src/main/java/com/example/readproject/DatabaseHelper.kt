@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DatabaseHelper(val context: Context, name: String, version: Int) :SQLiteOpenHelper(context, name, null, version) {
 
-    private final val dbName="ReadProject.db"
+    private final val dbName="Read.db"
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("create table if not exists user(uid integer primary key autoincrement,name varchar not null unique,img text)")
@@ -23,6 +23,6 @@ class DatabaseHelper(val context: Context, name: String, version: Int) :SQLiteOp
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+
     }
 }
