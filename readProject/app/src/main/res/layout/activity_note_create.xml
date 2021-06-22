@@ -145,8 +145,6 @@
                 ></TextView>
             </RelativeLayout>
 
-
-
             <LinearLayout
                 android:id="@+id/lv_bottom"
                 android:layout_width="match_parent"

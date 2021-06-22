@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,6 +58,7 @@ class bookDetailAdapter(val bookInfo: BooksItemOne, val reviewList: List<bookRev
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        Log.d("onBindViewHolder","success")
         if (holder is BookInfoHolder) {
             (holder as BookInfoHolder).ratingBar_hots.setRating(java.lang.Float.valueOf(mBookInfo.rating) / 2)
             (holder as BookInfoHolder).tv_hots_num.setText(mBookInfo.rating)

@@ -4,6 +4,7 @@ package com.example.readproject
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.collection.ArrayMap
+import com.example.readproject.shelfchildFragment.TickApplication
 import org.litepal.LitePal
 
 class SPUtils private constructor(spName: String) {
@@ -274,6 +275,6 @@ class SPUtils private constructor(spName: String) {
     }
 
     init {
-        sp = MyApplication.getInstance()!!.getSharedPreferences(spName, Context.MODE_PRIVATE)
+        sp = TickApplication().getInstance()!!.getSharedPreferences(spName, Context.MODE_PRIVATE)
     }
 }
