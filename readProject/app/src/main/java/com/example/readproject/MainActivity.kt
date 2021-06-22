@@ -1,9 +1,7 @@
 package com.example.readproject
 
 import PlanDatabase.MyPlanHelper
-import android.app.Activity
 import android.content.Context
-import org.litepal.LitePal
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
@@ -14,7 +12,6 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -29,7 +26,6 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.TextView
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
@@ -78,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
         //setContentView(R.layout.bar_header)
         toolbar.title = ""
-        toolbar.setNavigationIcon(R.drawable.user)
+        toolbar.setNavigationIcon(R.drawable.theuser)
         setSupportActionBar(toolbar)
         replaceFragment(FragmentPlan())
         initActionBarDrawer()
