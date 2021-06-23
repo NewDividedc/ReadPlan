@@ -90,7 +90,7 @@ class listContentFragment() : Fragment() {
             val holder = ViewHolder(view)
             holder.itemView.setOnClickListener {
                 val book = booklist_inner?.get(holder.adapterPosition)
-                Toast.makeText(context,book!!.bookName,Toast.LENGTH_LONG).show()
+                //Toast.makeText(context,book!!.bookName,Toast.LENGTH_LONG).show()
             }
             return holder
         }

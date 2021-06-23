@@ -37,7 +37,7 @@ class shelf_fragment: Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Toast.makeText(context,bookList[position].bookName,Toast.LENGTH_LONG).show()
+        //Toast.makeText(context,bookList[position].bookName,Toast.LENGTH_LONG).show()
         val intent = Intent(context,ClockActivity::class.java).apply {
             val bookid = bookList[position].bookID
             val bookTmp = BookShelfDao(requireActivity()).queryBookbyId(bookid)

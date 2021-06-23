@@ -64,7 +64,7 @@ class FragmentNote :Fragment() {
         mess= SPUtils.instance.getString("ACCOUNT")
         val allNotes: MutableList<ReadNote>? = where("userAccount = ?",mess).find(ReadNote::class.java)
         //findAll<ReadNote>(ReadNote::class.java)where("userAccount = ?",mess ).
-        Toast.makeText(context,mess,Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context,mess,Toast.LENGTH_SHORT).show()
         if(allNotes!=null) {
             for (noteone in allNotes) {
                 if (noteone != null) {
@@ -269,7 +269,8 @@ class FragmentNote :Fragment() {
                 if(rev.size!=0) {
                     myViewModel.noteList = rev
                 }else{
-                    myViewModel.noteList = ArrayList()
+                    val my:MutableList<ReadNote> =ArrayList()
+                    myViewModel.noteList = my
                 }
                 adapter?.update(myViewModel.noteList)
             }
@@ -279,7 +280,8 @@ class FragmentNote :Fragment() {
                     if(rev.size!=0) {
                         myViewModel.noteList = rev
                     }else{
-                        myViewModel.noteList = ArrayList()
+                        val my:MutableList<ReadNote> =ArrayList()
+                        myViewModel.noteList = my
                     }
                     myViewModel.noteList=myViewModel.noteList.reversed() as MutableList<ReadNote>
                     adapter?.update(myViewModel.noteList)
@@ -325,6 +327,7 @@ class FragmentNote :Fragment() {
         if (notelines != null) {
             Algorithm.main(notelines!!)
             var keywords = Algorithm.resultlist
+            keys?.clear()
             if (keywords.size == 0) {
                 //toast("未找到关键词")
             } else if (keywords.size <= 5) {

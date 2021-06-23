@@ -46,11 +46,11 @@ class FragmentShelf : Fragment() {
             var fragment: Fragment = shelf_fragment()
             when (position){
                 0 ->{
-                    Toast.makeText(context,"书架",Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context,"书架",Toast.LENGTH_LONG).show()
                     fragment = shelf_fragment()
                 }
                 1 ->{
-                    Toast.makeText(context,"书单",Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context,"书单",Toast.LENGTH_LONG).show()
                     fragment = list_fragment()
                 }
             }

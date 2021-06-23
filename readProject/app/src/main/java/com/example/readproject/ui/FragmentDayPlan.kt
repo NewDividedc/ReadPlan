@@ -133,7 +133,7 @@ class FragmentDayPlan: Fragment() {
                 plan_is_finish_num.text = is_finish.toString() + " " + "项"
                 plan_not_finish_num.text = not_finish.toString() + " " + "项"
 
-                Toast.makeText(context,"会执行",Toast.LENGTH_SHORT).show()
+                //Toast.makeText(context,"会执行",Toast.LENGTH_SHORT).show()
 
 
             }

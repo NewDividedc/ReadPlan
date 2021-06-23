@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity() {
 
         if (cursor != null) {
             if(cursor.moveToFirst()) {
-                Toast.makeText(this, "已经初始化数据库", Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(this, "已经初始化数据库", Toast.LENGTH_SHORT).show()
 
             }
             else{
                 initdata()
-                Toast.makeText(this, "初始化成功", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "初始化成功", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -189,24 +189,24 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_scan -> {
-                    Toast.makeText(getApplicationContext(), "扫一扫", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(getApplicationContext(), "扫一扫", Toast.LENGTH_SHORT).show()
                     this.takePhoto()
                     true
                 }
                 R.id.nav_set -> {
-                    Toast.makeText(getApplicationContext(), "通知设置", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(getApplicationContext(), "通知设置", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_safety -> {
-                    Toast.makeText(getApplicationContext(), "账号安全", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(getApplicationContext(), "账号安全", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_help -> {
-                    Toast.makeText(getApplicationContext(), "帮助", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(getApplicationContext(), "帮助", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_logout -> {
-                    Toast.makeText(getApplicationContext(), "退出登录", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(getApplicationContext(), "退出登录", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     true

@@ -32,7 +32,7 @@ class MyPlanHelper(val context: Context,name:String,version:Int) : SQLiteOpenHel
         db.execSQL(sqlCreate2)
 
         Log.d("make_database","ok")
-        Toast.makeText(context,"database ok",Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context,"database ok",Toast.LENGTH_SHORT).show()
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

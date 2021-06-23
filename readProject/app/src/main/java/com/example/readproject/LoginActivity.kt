@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                             SPUtils.instance.put("PASSWORD",password_edit.text.toString().trim())
                             SPUtils.instance.put("CHECKBOX",true)
                         }else{
-                            SPUtils.instance.put("ACCOUNT","")
+                            SPUtils.instance.put("ACCOUNT",account_edit.text.toString().trim())
                             SPUtils.instance.put("PASSWORD","")
                             SPUtils.instance.put("CHECKBOX",false)
                         }
