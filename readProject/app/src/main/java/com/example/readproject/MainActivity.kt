@@ -1,10 +1,9 @@
 package com.example.readproject
 
 import PlanDatabase.MyPlanHelper
-import android.app.Activity
 import android.content.Context
-import org.litepal.LitePal
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.Editable
@@ -27,12 +26,15 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.TextView
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.BitmapImageViewTarget
+import com.example.readproject.dao.Book
+import com.example.readproject.dao.BookShelfDao
+import com.example.readproject.dao.Booklist
+import com.example.readproject.dao.BooklistDao
 import kotlinx.android.synthetic.main.activity_main2.view.*
 import kotlinx.android.synthetic.main.bar_header.view.*
 
@@ -72,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
         //setContentView(R.layout.bar_header)
         toolbar.title = ""
-        toolbar.setNavigationIcon(R.drawable.user)
+        toolbar.setNavigationIcon(R.drawable.theuser)
         setSupportActionBar(toolbar)
         replaceFragment(FragmentPlan())
         initActionBarDrawer()
@@ -309,8 +311,10 @@ class MainActivity : AppCompatActivity() {
         return false
     }
 
-
     fun initdata(){
+        val dbHelper = com.example.readproject.database.DatabaseHelper(this, "ReadProject.db", 1)
+        val db : SQLiteDatabase = dbHelper.writableDatabase
+        dbHelper.onCreate(db)
         //推荐
         val book1=BooksItemOne(1,"https://img1.doubanio.com/view/subject/s/public/s33849778.jpg",
             "美丽黑暗","[法] 法比安·韦尔曼",
@@ -571,6 +575,35 @@ class MainActivity : AppCompatActivity() {
         reviewdao.addReview(review2)
         reviewdao.addReview(review3)
         reviewdao.addReview(review4)
+
+        val book111 = Book(1,"'美丽黑暗'",1,R.drawable.page_2,96,"'法比安韦尔曼'",10,null,120000)
+        val book112 = Book(2,"'数星星的夜'",1,R.drawable.page_3,200,"'尹东柱'",0,null,0)
+        val book113 = Book(3,"'神雕侠侣'",1,R.drawable.page_4,1564,"'金庸'",0,null,0)
+        val book114 = Book(4,"'众病之王'",1,R.drawable.page_5,525,"'悉达多穆克吉'",0,null,0)
+        val book115 = Book(5,"'基督山伯爵'",1,R.drawable.page_6,1453,"'大仲马'",0,null,0)
+        val book116 = Book(6,"'活着'",1,R.drawable.page_7,191,"'余华'",0,null,0)
+
+        val bookShelfdao= BookShelfDao(this)
+
+        bookShelfdao.insertBook(book111)
+        bookShelfdao.insertBook(book112)
+        bookShelfdao.insertBook(book113)
+        bookShelfdao.insertBook(book114)
+        bookShelfdao.insertBook(book115)
+        bookShelfdao.insertBook(book116)
+
+        //initBookList
+        val booklist1 = Booklist(1,"'夏日限定'",R.drawable.list_page_4,arrayListOf<Book>(book111,book112,book113))
+        val booklist2 = Booklist(2,"'秋意正浓'", R.drawable.list_page_2,arrayListOf<Book>(book114,book115))
+        val booklist3 = Booklist(3,"'最爱yyds'",R.drawable.list_page_1, arrayListOf<Book>(book116))
+
+        val booklistDao= BooklistDao(this)
+        booklistDao.insertLists(booklist1)
+        booklistDao.insertLists(booklist2)
+        booklistDao.insertLists(booklist3)
+        booklistDao.createListTable(booklist1)
+        booklistDao.createListTable(booklist2)
+        booklistDao.createListTable(booklist3)
     }
 
 }

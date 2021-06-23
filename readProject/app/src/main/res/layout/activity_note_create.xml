@@ -7,7 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:clickable="true">
+    android:clickable="true"
+    android:background="#CDFDFEFF"
+    >
 
 
     <TextView
@@ -23,10 +25,10 @@
         android:id="@+id/note_add_topic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="23dp"
+        android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:text=" 添加笔记"
-        android:textColor="@color/black"
+        android:textColor="#232323"
         android:layout_marginTop="10dp"
         />
 
@@ -35,11 +37,11 @@
         android:layout_toRightOf="@+id/note_add_topic"
         android:layout_width="70dp"
         android:layout_height="30dp"
-        app:cardBackgroundColor="#8BB4CA"
+        app:cardBackgroundColor="#8493bc"
         app:cardCornerRadius="20dp"
         app:cardElevation="3dp"
         tools:ignore="MissingConstraints"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="74dp"
         android:layout_marginTop="10dp"
         android:onClick="card_click"
         >
@@ -50,6 +52,7 @@
             android:text="完成"
             android:textSize="15dp"
             android:layout_gravity="center"
+            android:textColor="#FFFFFF"
             />
 
     </androidx.cardview.widget.CardView>
@@ -89,7 +92,7 @@
                         android:id="@+id/icAct_title_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:hint="标题"
 
@@ -103,7 +106,7 @@
                 android:id="@+id/note_content_add"
                 android:layout_below="@id/icAct_title_layout"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="560dp"
                 android:orientation="vertical"
                 android:layout_weight="1">
 
@@ -121,6 +124,7 @@
                         android:hint=" 文字输入"
                         android:inputType="textMultiLine"
                         android:background="@null"
+                        android:textSize="15sp"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout>
@@ -142,6 +146,9 @@
                 android:max="50"
                 android:progress="0"
                 android:thumb="@drawable/slide_round"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_toRightOf="@+id/seekbarprocess"
                 android:visibility="invisible"/>
             <TextView
                 android:id="@+id/seekbarprocess"
@@ -151,10 +158,9 @@
                 android:text="字体大小 0"
                 android:textColor="@color/lighttopic"
                 android:visibility="invisible"
+                android:layout_marginLeft="20dp"
                 ></TextView>
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:id="@+id/lv_bottom"

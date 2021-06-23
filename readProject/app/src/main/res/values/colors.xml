@@ -52,4 +52,12 @@
     <color name="transparent30">#30000000</color>
 
     <color name="lighttopic">#aec9f1</color>
+
+    <color name="colorText">#8493bc</color>
+    <color name="colorListBack">#B8C2DC</color>
+    <!-- 水纹 -->
+    <color name="colorRipple">#8493bc</color>
+    <!-- 倒计时钟 -->
+    <color name="colorStrokeCircle">#ffffff</color>
+    <color name="colorStrokeArc">#ffffff</color>
 </resources>
