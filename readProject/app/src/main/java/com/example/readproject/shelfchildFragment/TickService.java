@@ -277,10 +277,16 @@ public class TickService extends Service implements CountDownTimer.OnCountDownTi
                     editor.putLong("pref_key_amount_durations", amountDurations);
                     editor.apply();
 
+                    Integer new_readPages =  PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getInt("readPages",0);
+                    Log.d("TickService","更新new_readPages"+new_readPages);
+
                     //更新Database
                     Log.d("BookShelfDao",bookID.toString());
                     BookShelfDao bookShelfDao = new BookShelfDao(this);
                     bookShelfDao.updateReadtime(bookID,amountDurations);
+
+                    Integer old_readPages = bookShelfDao.queryBookbyId(bookID).getReadPages();
+                    bookShelfDao.updateReadPages(bookID,new_readPages+old_readPages);
                 }
             }
         } else {

@@ -57,13 +57,14 @@ class listContentFragment() : Fragment() {
         }
     }
 
-    fun refresh(adapter_refresh: ListContentAdapter,new_booklist: Booklist){
+    fun refresh(new_booklist: Booklist){
         Log.d("listContentFragment","refreshshshshssh")
-        if (adapter_refresh == null) {
+        if (adapter == null) {
             Log.d("adapter","nulnulnulnulll")
         }
-        adapter_refresh!!.setList(new_booklist.bookList)
-        adapter_refresh!!.notifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
+        adapter?.setList(new_booklist.bookList)
+        adapter?.notifyDataSetChanged()
         //showUIchange(MainActivity(),new_booklist.bookList)
     }
 
@@ -99,7 +100,8 @@ class listContentFragment() : Fragment() {
             Log.d("onBindViewHolder",book!!.bookName)
             holder.bookImage.setImageResource(book!!.bookImage)
             holder.bookName.text = book.bookName
-            val tmp : Int = (book.readPages / book.allPages) * 100
+            val tmp : Int = (book.readPages * 100 ) / book.allPages
+            Log.d("onBindViewHolder",book.bookName+" readPages:"+book.readPages+" progress:"+tmp.toString())
             holder.bookProgress.text = resources.getString(R.string.list_book_progress,tmp) + "%"
         }
 

@@ -88,6 +88,22 @@ class BookShelfDao(val context: Context) {
         helper.close()
         Log.d("BookShelfDao","updatetime"+readtime)
     }
+    fun updateReadPages(bookid: Int,readpages: Int){
+        val db = helper.writableDatabase
+        val values = ContentValues()
+        values.put("readPages",readpages)
+        val selection = "bookID = ?"
+        val selectionArgs = arrayOf<String>(bookid.toString())
+        db.update(
+            "shelfBooks",
+            values,
+            selection,
+            selectionArgs
+        )
+        helper.close()
+        Log.d("BookShelfDao","readPages"+readpages)
+    }
+
 }
 
 

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -17,6 +18,7 @@ import com.example.readproject.R
 import com.example.readproject.dao.Booklist
 import com.example.readproject.dao.BooklistDao
 import kotlinx.android.synthetic.main.shelf_child_list_title_frag.*
+
 
 class listTitleFragment : Fragment() {
     var listTitleList = ArrayList<Booklist>()
@@ -78,7 +80,13 @@ class listTitleFragment : Fragment() {
                 editor.apply()
                 Log.d("listID","ccccccccccccccccccccccccccccccc")
                 Log.d("listID",PreferenceManager.getDefaultSharedPreferences(context).getInt("listID",0).toString())
-                fragment_content.refresh(fragment_content.adapter!!,list_item)
+                fragment_content.refresh(list_item)
+
+                //list_fragment().refresh(list_item)
+
+//                val fragmentManager = activity!!.findViewById<FrameLayout>(R.id.frag).findViewById<>()
+//                val fragment_list = fragmentManager.findFragmentById(R.layout.fragment_shelf) as listContentFragment
+//                fragmentC.refresh(list_item)
 //                val bundle = Bundle()
 //                bundle.putInt("listID", list_item.listID)
 //                fragment.arguments = bundle

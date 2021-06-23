@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -152,6 +153,17 @@ class ClockActivity : AppCompatActivity() {
                                 finish()
                             }
                             1 ->{
+                                val editText = EditText(this)
+                                AlertDialog.Builder(this)
+                                    .setTitle("请输入本次阅读页数")
+                                    .setView(editText)
+                                    .setPositiveButton("确定",DialogInterface.OnClickListener{ dialog: DialogInterface?, which: Int ->
+                                        val editor = PreferenceManager.getDefaultSharedPreferences(applicationContext).edit()
+                                        editor.putInt("readPages",Integer.parseInt(editText.text.toString()))
+                                        Log.d("mBtnStop",editText.text.toString())
+                                        editor.apply()
+                                    })
+                                    .show()
                                 var iiii = mApplication!!.scene
                                 Log.d("mBtnStop",iiii.toString())
                                 val i = TickService.newIntent(applicationContext,bookID)

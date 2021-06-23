@@ -65,12 +65,12 @@ class shelf_fragment: Fragment(), AdapterView.OnItemClickListener {
         bookList.add(book5!!)
         bookList.add(book6!!)
 
-        GridItemList.add(GridItem(book1.bookName,R.drawable.page_2))
-        GridItemList.add(GridItem(book2.bookName,R.drawable.page_3))
-        GridItemList.add(GridItem(book3.bookName,R.drawable.page_2))
-        GridItemList.add(GridItem(book4.bookName,R.drawable.page_3))
-        GridItemList.add(GridItem(book5.bookName,R.drawable.page_2))
-        GridItemList.add(GridItem(book6.bookName,R.drawable.page_3))
+        GridItemList.add(GridItem(book1.bookName,book1.bookImage))
+        GridItemList.add(GridItem(book2.bookName,book2.bookImage))
+        GridItemList.add(GridItem(book3.bookName,book3.bookImage))
+        GridItemList.add(GridItem(book4.bookName,book4.bookImage))
+        GridItemList.add(GridItem(book5.bookName,book5.bookImage))
+        GridItemList.add(GridItem(book6.bookName,book6.bookImage))
 
     }
 

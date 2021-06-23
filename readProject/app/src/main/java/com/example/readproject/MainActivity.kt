@@ -576,12 +576,12 @@ class MainActivity : AppCompatActivity() {
         reviewdao.addReview(review3)
         reviewdao.addReview(review4)
 
-        val book111 = Book(1,"'美丽黑暗'",1,R.drawable.page_2,96,"'法比安韦尔曼'",0,null,120000)
+        val book111 = Book(1,"'美丽黑暗'",1,R.drawable.page_2,96,"'法比安韦尔曼'",10,null,120000)
         val book112 = Book(2,"'数星星的夜'",1,R.drawable.page_3,200,"'尹东柱'",0,null,0)
-        val book113 = Book(3,"'美丽黑暗'",1,R.drawable.page_2,96,"'法比安韦尔曼'",0,null,0)
-        val book114 = Book(4,"'数星星的夜'",1,R.drawable.page_3,200,"'尹东柱'",0,null,0)
-        val book115 = Book(5,"'美丽黑暗'",1,R.drawable.page_2,96,"'法比安韦尔曼'",0,null,0)
-        val book116 = Book(6,"'数星星的夜'",1,R.drawable.page_3,200,"'尹东柱'",0,null,0)
+        val book113 = Book(3,"'神雕侠侣'",1,R.drawable.page_4,1564,"'金庸'",0,null,0)
+        val book114 = Book(4,"'众病之王'",1,R.drawable.page_5,525,"'悉达多穆克吉'",0,null,0)
+        val book115 = Book(5,"'基督山伯爵'",1,R.drawable.page_6,1453,"'大仲马'",0,null,0)
+        val book116 = Book(6,"'活着'",1,R.drawable.page_7,191,"'余华'",0,null,0)
 
         val bookShelfdao= BookShelfDao(this)
 
@@ -593,9 +593,9 @@ class MainActivity : AppCompatActivity() {
         bookShelfdao.insertBook(book116)
 
         //initBookList
-        val booklist1 = Booklist(1,"'夏日限定'",R.drawable.page_2,arrayListOf<Book>(book111,book112,book113))
-        val booklist2 = Booklist(2,"'秋意正浓'", R.drawable.page_2,arrayListOf<Book>(book114,book115))
-        val booklist3 = Booklist(3,"'最爱yyds'",R.drawable.page_2, arrayListOf<Book>(book116))
+        val booklist1 = Booklist(1,"'夏日限定'",R.drawable.list_page_4,arrayListOf<Book>(book111,book112,book113))
+        val booklist2 = Booklist(2,"'秋意正浓'", R.drawable.list_page_2,arrayListOf<Book>(book114,book115))
+        val booklist3 = Booklist(3,"'最爱yyds'",R.drawable.list_page_1, arrayListOf<Book>(book116))
 
         val booklistDao= BooklistDao(this)
         booklistDao.insertLists(booklist1)
