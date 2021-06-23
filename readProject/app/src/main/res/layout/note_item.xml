@@ -9,6 +9,8 @@
     android:layout_marginRight="8dp"
     card_view:cardBackgroundColor="@color/white"
     android:clickable="true"
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="7dp"
     android:foreground="?android:attr/selectableItemBackground">
     <!-- Main Content View -->
     <LinearLayout
@@ -31,6 +33,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:maxEms="10"
+            android:ellipsize="end"
             />
         <TextView
             android:id="@+id/notedate"

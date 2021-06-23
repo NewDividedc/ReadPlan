@@ -60,4 +60,9 @@
     <string name="cancle_text">取消</string>
 
     <string name="my_review">我的评论</string>
+    <string-array name="spinnername">
+        <item>时间倒序</item>
+        <item>时间正序</item>
+        <item>生成关键词</item>
+    </string-array>
 </resources>

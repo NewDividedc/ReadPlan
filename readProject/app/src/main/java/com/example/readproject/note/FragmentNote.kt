@@ -1,16 +1,15 @@
 package com.example.readproject.note
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -18,17 +17,27 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.readproject.DragFloatActionButton
-import com.example.readproject.R
-import com.example.readproject.SPUtils
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.readproject.*
+import com.example.readproject.Algorithm
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_note.*
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import org.angmarch.views.NiceSpinner
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.custom.async
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.*
 import org.litepal.LitePal.deleteAll
 import org.litepal.LitePal.where
-import java.text.SimpleDateFormat
+import java.io.*
+import java.nio.channels.AsynchronousFileChannel.open
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class FragmentNote :Fragment() {
@@ -36,11 +45,17 @@ class FragmentNote :Fragment() {
     private var noteRecyclerView: RecyclerView? = null
     private var addFAB: DragFloatActionButton? = null
     private var adapter: NoteAdapter? = null
+    private var spinner:NiceSpinner?=null
     private var titleEt: EditText? = null
     private var contentEt: EditText? = null
+    var notelines:MutableList<String>?=null
+    var searchKeys=0
+    var selectedkey:String?=null
+    var keys:MutableList<String>?=ArrayList()
     var mess : String? = null;
     //private var noteList: MutableList<ReadNote> = ArrayList()
     private val noteResult=0;
+    var reverflag=false
     val myViewModel by viewModels<NoteViewModel>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -71,9 +86,36 @@ class FragmentNote :Fragment() {
 
         initView(view)
         initEvent()
-        //fragment.refresh()
+
+
+//        //fragment.refresh()
+//        val input = context?.assets?.open("notes.txt")?.bufferedReader().use{
+//            it?.readLines()
+//        }
+//        if (input != null) {
+//            Algorithm.main(input)
+//        }
+//        val keywords=Algorithm.resultlist
+//        for(each in keywords){
+//            println("最后大小为${each.key}+${each.value}")
+//        }
+//        writeTextToFile("12","13",)
+//        writeTextToFile("12","13",)
         return view
     }
+//    private fun writeTextToFile(content:String,title:String,userAccount:String) {
+//        var file = File(context?.getFilesDir()?.getPath().toString()+userAccount+".txt")
+//        if(!file.exists()){
+//            file.createNewFile()
+//        }
+//        var strContent = "$title  $content"
+//        strContent += "\r\n"
+//        var randomAccessFile = RandomAccessFile(file, "rwd")
+//        randomAccessFile.seek(file.length())
+//        randomAccessFile.write(strContent.toByteArray())
+//        randomAccessFile.close()
+//        println(file.absolutePath)
+//    }
 //    override fun onAttach(context: android.content.Context) {
 //        var sql:NoteSql= NoteSql(context)
 //        val list:List<ReadNote> =sql.GetNoteList(" ");
@@ -117,7 +159,6 @@ class FragmentNote :Fragment() {
     override fun onViewCreated(view: View,
                                savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //textView.setText(mess);
         adapter = NoteAdapter(requireContext(), myViewModel.noteList)
         adapter!!.setOnItemClickListener(object : NoteAdapter.OnItemClickListener {
@@ -144,8 +185,165 @@ class FragmentNote :Fragment() {
         })
         noteRecyclerView!!.adapter = adapter
         noteRecyclerView!!.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        val dataList:MutableList<String> =ArrayList();
+        dataList.add("时间倒序");
+        dataList.add("时间正序");
+        dataList.add("关键词");
+        spinner?.attachDataSource(dataList);
+        spinner?.addOnItemClickListener { parent, view, position, id ->
+            if(dataList[position]=="关键词"){
+                if(searchKeys==1){
+                    alert("是否要重新提取关键词","尊敬的用户"){
+                        positiveButton("好的") {
+                            context?.let { it1 -> mess?.let { it2 ->
+                                NoteFileUtils.rewriteFile(it1,
+                                    it2,myViewModel.noteList)
+                            } }
+                            val dialog = indeterminateProgressDialog("正在努力加载关键词", "请稍候")
+                            dialog.show()
+                            Thread {
+                                findkeywords()
+                                runOnUiThread {
+                                    //dialog.dismiss()
+                                    //println("zuihou keys size${keys?.size}")
+                                    if(keys?.size==0){
+                                        toast("没找到关键词")
+                                    }else {
+                                        var selectedkey: String
+                                        keys?.let {
+                                            selector("请选择关键词", it) { _: DialogInterface, i: Int ->
+                                                selectedkey = keys!![i]
+                                                toast("你选择的关键词是${selectedkey}")
+                                                findNotes(selectedkey)
+                                            }
+                                        }
+                                    }
+                                    dialog.dismiss()
+                                }
+                            }.start()  }
+                        negativeButton("不用") {  keys?.let {
+                            selector("请选择关键词", it) { _: DialogInterface, i: Int ->
+                                selectedkey = keys!![i]
+                                toast("你选择的关键词是${selectedkey}")
+                                findNotes(selectedkey!!)
+                            }
+                        } }
+                    }.show()
+
+                }
+                else {
+                    context?.let { it1 -> mess?.let { it2 ->
+                        NoteFileUtils.rewriteFile(it1,
+                            it2,myViewModel.noteList)
+                    } }
+                    val dialog = indeterminateProgressDialog("正在努力分析关键词", "请稍候")
+                    dialog.show()
+                    Thread {
+                        findkeywords()
+                        runOnUiThread {
+                            //dialog.dismiss()
+                            //println("zuihou keys size${keys?.size}")
+                            if(keys?.size==0){
+                                toast("没找到关键词")
+                            }else {
+                                var selectedkey: String
+                                keys?.let {
+                                    selector("请选择关键词", it) { _: DialogInterface, i: Int ->
+                                        selectedkey = keys!![i]
+                                        toast("你选择的关键词是${selectedkey}")
+                                        findNotes(selectedkey)
+                                    }
+                                }
+                            }
+                            dialog.dismiss()
+                        }
+                    }.start()
+                    //dialog.dismiss()
+                }
+                //
+            }
+            else if(dataList[position]=="时间倒序"){
+                reverflag=true
+                val rev=myViewModel.noteList.reversed() as MutableList<ReadNote>
+                if(rev.size!=0) {
+                    myViewModel.noteList = rev
+                }else{
+                    myViewModel.noteList = ArrayList()
+                }
+                adapter?.update(myViewModel.noteList)
+            }
+            else{
+                if(reverflag){
+                    val rev=myViewModel.noteList.reversed() as MutableList<ReadNote>
+                    if(rev.size!=0) {
+                        myViewModel.noteList = rev
+                    }else{
+                        myViewModel.noteList = ArrayList()
+                    }
+                    myViewModel.noteList=myViewModel.noteList.reversed() as MutableList<ReadNote>
+                    adapter?.update(myViewModel.noteList)
+                }else {
+                    adapter?.update(myViewModel.noteList)
+                }
+                reverflag=false
+            }
+        }
+
+
+    }
+    fun findNotes(key:String){
+        val notespos=context?.let { it1 -> mess?.let { it2 ->
+            NoteFileUtils.findnote(it1,key,
+                it2
+            )
+        } }
+        val filterList:MutableList<ReadNote> =ArrayList()
+        if (notespos != null) {
+            for(each in notespos){
+                if(each<myViewModel.noteList.size) {
+                    filterList.add(myViewModel.noteList[each])
+                }else{
+                    toast("找不到该Note，请考虑重新分析关键词")
+                    break
+                }
+            }
+        }
+        adapter?.update(filterList)
+
+    }
+    fun findkeywords(){
+        searchKeys=1
+        notelines = context?.let {
+            mess?.let { it1 ->
+                NoteFileUtils.readTextFromFile(
+                    it,
+                    it1
+                )
+            }
+        } as MutableList<String>
+        if (notelines != null) {
+            Algorithm.main(notelines!!)
+            var keywords = Algorithm.resultlist
+            if (keywords.size == 0) {
+                //toast("未找到关键词")
+            } else if (keywords.size <= 5) {
+                for (each in keywords) {
+                    keys?.add(each.key)
+                }
+            } else {
+                keywords = keywords.subList(0, 4)
+                for (each in keywords) {
+                    keys?.add(each.key)
+                }
+            }
+        }else{
+            toast("没有笔记提取关键词")
+        }
+
     }
     private fun initView(view: View) {
+        spinner=view.findViewById<View>(R.id.note_spinner) as NiceSpinner
         rootView = view.findViewById<View>(R.id.stFrm_coordinatorLayout) as CoordinatorLayout
         addFAB = view.findViewById<View>(R.id.noteFrm_addFad) as DragFloatActionButton
         noteRecyclerView = view.findViewById<View>(R.id.noteFrm_recyclerView) as RecyclerView
@@ -214,11 +412,19 @@ class NoteAdapter:RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     //  删除数据
     private fun removeData(position: Int,date:String) {
-        dList.removeAt(position)
-        deleteAll(ReadNote::class.java, "notedate = ? ", date)
-        //删除动画
-        notifyItemRemoved(position)
-        notifyDataSetChanged()
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("尊敬的用户")
+        builder.setMessage("你真的要删除我吗？")
+        builder.setPositiveButton("千真万确") { _: DialogInterface, _: Int ->
+            dList.removeAt(position)
+            deleteAll(ReadNote::class.java, "notedate = ? ", date)
+            notifyItemRemoved(position)
+            notifyDataSetChanged()}
+        builder.setNegativeButton("我再想想") { _: DialogInterface, _: Int -> }
+        val alert = builder.create()
+        alert.show()
+
     }
 
 //    interface OnItemClickListener {

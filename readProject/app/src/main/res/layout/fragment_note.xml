@@ -2,12 +2,22 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/note_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:arrowTint="@color/colorPrimary"
+        app:textTint="@color/black"/>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/stFrm_coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/note_spinner"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/noteFrm_recyclerView"
@@ -23,8 +33,8 @@
             android:layout_height="50dp"
             app:backgroundTint="@color/lighttopic"
             app:layout_anchor="@id/noteFrm_recyclerView"
-            app:layout_anchorGravity="right|end"
-            android:layout_marginTop="450dp"
+            app:layout_anchorGravity="right|end|bottom"
+
             >
 
         </com.example.readproject.DragFloatActionButton>

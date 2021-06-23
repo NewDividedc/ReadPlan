@@ -22,17 +22,12 @@ import androidx.core.view.isVisible
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import com.example.readproject.DragFloatActionButton
-import com.example.readproject.HideAnimationUtils
-import com.example.readproject.R
-import com.example.readproject.SPUtils
+import com.example.readproject.*
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_note_create.*
 import kotlinx.android.synthetic.main.note_bottom.*
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.selector
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -50,7 +45,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
     private var time:String?=null
     private var idea: ReadNote? = null
     var account1:String?=null
-    private var isShowing = false
+    private var isShowing = true
     @JvmField
    @BindView(R.id.lv_bottom)
     var lvBottom: LinearLayout? = null
@@ -61,6 +56,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_create)
         ButterKnife.bind(this)
+        HideAnimationUtils(false,lv_bottom)
         var bundle=this.intent.extras
         if (bundle != null) {
             icAct_title_et.text= Editable.Factory.getInstance().newEditable(bundle.get("title") as CharSequence?)
@@ -87,7 +83,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         }
         val sb= findViewById<SeekBar>(R.id.seekbar)
         sb.setOnSeekBarChangeListener(this)
-        HideAnimationUtils(false,lv_bottom)
+
         //tv=(TextView) findViewById(R.id.tv);
     }
 
@@ -121,12 +117,16 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
         titleEt?.setText("")
         contentEt?.setText("")
     }
-    @OnClick(R.id.noteshare)
-    fun OnClick5(v: View){
-       val bit:Bitmap=shotScrollView(scroll_content)
+    @OnClick(R.id.notescreenshot)
+    fun Onclickscreenshot(v:View){
+        //Toast.makeText(this, "图片保存为", Toast.LENGTH_SHORT).show();
+
+        toast("woshi")
+        val bit:Bitmap=shotScrollView(scroll_content)
         saveImageToGallery(this,bit)
         searchFile()
     }
+
       fun saveImageToGallery(context: Context, bitmap: Bitmap) {
         val appDir =File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "笔记截屏");
         // val appDir1 =File(Environment.getext(), "笔记截屏");
@@ -170,6 +170,14 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
                 System.gc(); // 通知系统回收
             }
               }
+    }
+    @OnClick(R.id.edit_cancel)
+    fun onClickCancel(v: View){
+        alert("真的要丢弃编辑的内容吗","尊敬的用户"){
+            positiveButton("残忍丢弃") { finish() }
+            negativeButton("我再想想") {  }
+        }.show()
+        //finish()
     }
     @OnClick(R.id.fontsizechange)
     fun onClickseekBar(v:View){
@@ -296,6 +304,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
                     note.setNoteContent(content)
                     note.updateAll("notedate=?", time)
                 }
+                account1?.let { it1 -> NoteFileUtils.writeTextToFile(this,content,title, it1) }
                 saveNoteMessage("笔记保存")
                 //lvBottom?.let { HideAnimationUtils(false, it) }
                 finish()
@@ -318,7 +327,7 @@ open class NoteCreateActivity: AppCompatActivity(),SeekBar.OnSeekBarChangeListen
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         contentEt?.textSize=progress.toFloat()
-        seekbarprocess.text="字体大小为${progress}"
+        seekbarprocess.text="字体大小 ${progress}"
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
